@@ -4,6 +4,8 @@ export * from '../infra/db/postgres/CategoriaRepository/updateCategoriaRepositor
 export * from '../infra/db/postgres/CategoriaRepository/deleteCategoriaRepository'
 export * from '../infra/db/postgres/PhotoRepository/deletePhotoRepository'
 export * from '../infra/db/postgres/PhotoRepository/listPhotoRepository'
+export * from '../infra/db/postgres/PhotoRepository/getPhotoRepository'
+export * from '../infra/db/postgres/ProdutoRepository/addProdutoRepository'
 
 export * from '../data/useCases/Categoria/addCategoria'
 export * from '../data/useCases/Photo/addphoto'
@@ -11,6 +13,8 @@ export * from '../data/useCases/Categoria/updateCategoria'
 export * from '../data/useCases/Categoria/deleteCategoria'
 export * from '../data/useCases/Photo/deletePhoto'
 export * from '../data/useCases/Photo/listPhoto'
+export * from '../data/useCases/Photo/getPhoto'
+export * from '../data/useCases/Produto/addProduto'
 
 export * from '../presentation/Controllers/Categoria/addCategoria/addCategoria'
 export * from '../presentation/Controllers/Photo/addPhoto/addPhoto'
@@ -18,3 +22,5 @@ export * from '../presentation/Controllers/Categoria/updateCategoria/updateCateg
 export * from '../presentation/Controllers/Categoria/deleteCategoria/deleteCategoria'
 export * from '../presentation/Controllers/Photo/deletePhoto/deletePhoto'
 export * from '../presentation/Controllers/Photo/listPhotos/listPhoto'
+export * from '../presentation/Controllers/Photo/getPhoto/getPhoto'
+export * from '../presentation/Controllers/Produto/addProduto/addProduto'

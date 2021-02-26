@@ -8,6 +8,8 @@ import {updateCategoriaFactory} from '../factories/Categoria/updateCategoriaFact
 import { deleteCategoriaFactory } from '../factories/Categoria/deleteCategoriaFactory'
 import { deletePhotoFactory } from '../factories/Photo/deletePhotoFactory'
 import { ListPhotoFactory } from '../factories/Photo/listPhotoFactory'
+import {getPhotoFactory} from '../factories/Photo/getPhotoFactory'
+import { addProdutoFactory } from '../factories/Produto/addProdutoFactory'
 
 const route = Router()
 
@@ -50,6 +52,18 @@ route.delete('/photo/:id', async (req, res)=>{
 route.get('/photos', async(req, res)=>{
   const listPhoto = ListPhotoFactory()
   const response = await listPhoto.handle(req)
+  return res.status(response.statusCode).json(response.body)
+})
+
+route.get('/photo/:id', async(req, res)=>{
+  const getPhoto = await getPhotoFactory()
+  const response = await getPhoto.handle(req)
+  return res.status(response.statusCode).json(response.body)
+})
+
+route.post('/produto', async(req, res)=>{
+  const addProduto = await addProdutoFactory()
+  const response = await addProduto.handle(req)
   return res.status(response.statusCode).json(response.body)
 })
 

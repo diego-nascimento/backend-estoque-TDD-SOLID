@@ -3,6 +3,13 @@ import {deletePhotoCase} from '../../../../domain/usercases/Photo/deletePhoto'
 import { httpRequest } from '../../../protocols/http'
 import { serverError } from '../../../helpers/http-helpers'
 
+import {dbgetPhoto} from '../../../../factories/protocols'
+import { IPhoto } from '../addPhoto/protocols'
+import { getPhotoRepository } from '../../../../data/protocols/Photo/getPhoto'
+import { IdeleteFile } from '../../../../util/protocols'
+import { deleteFile } from '../../../../util/deleteFile'
+
+
 const makeDeletePhotoCase = ()=>{
   class deletePhotoCaseSlug implements deletePhotoCase{
     async handle(photo: number): Promise<boolean>{
@@ -12,10 +19,41 @@ const makeDeletePhotoCase = ()=>{
   return new deletePhotoCaseSlug
 }
 
+const fakePhoto: IPhoto ={
+  id: 1,
+  url: 'fake url'
+}
+
+
+const makegetPhotoRepo = ()=>{
+  class getPhotoRepoSlug implements getPhotoRepository{
+    async get(photo: number): Promise<IPhoto>{
+
+      return new Promise(resolve=> resolve(fakePhoto))
+    }
+  }
+  return new getPhotoRepoSlug
+}
+
+const makedeleteFileSlug = ()=>{
+  class deleteFileSlug implements IdeleteFile{
+    delete(fileName: string): boolean{
+
+      return true
+    }
+  }
+  return new deleteFileSlug
+}
+
+
 
 describe('deletePhoto', ()=>{
   test('shoudl return 400 if no photo param is provided', async ()=>{
-    const sut = new deletePhoto(makeDeletePhotoCase())
+    const getPhotoInfra = makegetPhotoRepo()
+    const getPhotoData = new dbgetPhoto(getPhotoInfra)
+    const deleteFile = makedeleteFileSlug()
+    jest.spyOn(deleteFile, 'delete').mockReturnValueOnce(true)
+    const sut = new deletePhoto(makeDeletePhotoCase(), getPhotoData, deleteFile)
     const httpRequest: httpRequest = {
       params:{
         
@@ -27,7 +65,11 @@ describe('deletePhoto', ()=>{
   })
 
   test('shoudl return 500 if photo could not be deleted', async ()=>{
-    const sut = new deletePhoto(makeDeletePhotoCase())
+    const getPhotoInfra = makegetPhotoRepo()
+    const getPhotoData = new dbgetPhoto(getPhotoInfra)
+    const deleteFile = makedeleteFileSlug()
+    jest.spyOn(deleteFile, 'delete').mockReturnValueOnce(true)
+    const sut = new deletePhoto(makeDeletePhotoCase(), getPhotoData, deleteFile)
     const httpRequest: httpRequest = {
       params:{
         id: 1
@@ -41,8 +83,29 @@ describe('deletePhoto', ()=>{
     expect(response.body).toEqual({Error: 'Something went wrong: teste'})
   })
 
-  test('shoudl return 200 if photo is deleted', async ()=>{
-    const sut = new deletePhoto(makeDeletePhotoCase())
+  test('should return 200 if photo is deleted', async ()=>{
+    const getPhotoInfra = makegetPhotoRepo()
+    const getPhotoData = new dbgetPhoto(getPhotoInfra)
+    const deleteFile = makedeleteFileSlug()
+    jest.spyOn(deleteFile, 'delete').mockReturnValueOnce(true)
+    const sut = new deletePhoto(makeDeletePhotoCase(), getPhotoData, deleteFile)
+    const httpRequest: httpRequest = {
+      params:{
+        id: 1
+      }
+    }
+    const response = await sut.handle(httpRequest)
+    expect(response.statusCode).toBe(200)
+    expect(response.body).toEqual(true)
+  })
+
+  
+  test('should return 500 if file could not be deleted', async ()=>{
+    const getPhotoInfra = makegetPhotoRepo()
+    const getPhotoData = new dbgetPhoto(getPhotoInfra)
+    const deleteFile = makedeleteFileSlug()
+    jest.spyOn(deleteFile, 'delete').mockReturnValueOnce(false)
+    const sut = new deletePhoto(makeDeletePhotoCase(), getPhotoData, deleteFile)
     const httpRequest: httpRequest = {
       params:{
         id: 1
@@ -50,9 +113,10 @@ describe('deletePhoto', ()=>{
     }
     
     const response = await sut.handle(httpRequest)
-    expect(response.statusCode).toBe(200)
-    expect(response.body).toEqual(true)
+    expect(response.statusCode).toBe(500)
+    expect(response.body).toEqual({Error: "Something went wrong: Arquivo não conseguiu ser deletado"})
   })
+
 })
 
 
