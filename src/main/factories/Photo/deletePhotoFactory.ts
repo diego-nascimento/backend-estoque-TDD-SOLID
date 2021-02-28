@@ -1,6 +1,6 @@
 import {deletePhoto, deletePhotoPostGres, dbdeletePhoto} from '../protocols'
 import {getPhotoPostGres, dbgetPhoto} from '../protocols'
-import {deleteFile} from '../../util/deleteFile'
+import {deleteFile} from '../../../util/deleteFile'
 
 export const deletePhotoFactory = ()=>{
   const deletePhotoInfra = new deletePhotoPostGres

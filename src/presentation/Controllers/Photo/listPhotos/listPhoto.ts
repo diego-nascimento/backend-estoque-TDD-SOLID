@@ -1,5 +1,5 @@
-import { listPhotosUseCase } from "../../../../domain/usercases/Photo/listPhoto";
-import { httpRequest, httpResponse, Icontrollers, ok, serverError } from "../addPhoto/protocols";
+
+import { httpRequest, httpResponse, Icontrollers, ok, serverError, listPhotosUseCase } from "../listPhotos/protocols";
 
 
 export class ListPhotos implements Icontrollers{

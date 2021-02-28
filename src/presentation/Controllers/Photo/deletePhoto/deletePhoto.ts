@@ -1,8 +1,5 @@
-import { getPhotouseCase } from '../../../../domain/usercases/Photo/getPhoto'
-import { deleteFile } from '../../../../util/deleteFile'
-import { IdeleteFile } from '../../../../util/protocols'
-import { IPhoto } from '../addPhoto/protocols'
-import {Icontrollers, httpRequest, serverError, badRequest, ok, httpResponse, deletePhotoCase} from './protocols'
+
+import {Icontrollers, httpRequest, serverError, badRequest, ok, httpResponse, deletePhotoCase, IPhoto, getPhotouseCase, IdeleteFile} from './protocols'
 
 export class deletePhoto implements Icontrollers{
   private DeletePhotoCase: deletePhotoCase

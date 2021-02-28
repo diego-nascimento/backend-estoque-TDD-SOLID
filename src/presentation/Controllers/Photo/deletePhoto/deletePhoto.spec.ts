@@ -3,11 +3,11 @@ import {deletePhotoCase} from '../../../../domain/usercases/Photo/deletePhoto'
 import { httpRequest } from '../../../protocols/http'
 import { serverError } from '../../../helpers/http-helpers'
 
-import {dbgetPhoto} from '../../../../factories/protocols'
+import {dbgetPhoto} from '../../../../main/factories/protocols'
 import { IPhoto } from '../addPhoto/protocols'
 import { getPhotoRepository } from '../../../../data/protocols/Photo/getPhoto'
 import { IdeleteFile } from '../../../../util/protocols'
-import { deleteFile } from '../../../../util/deleteFile'
+
 
 
 const makeDeletePhotoCase = ()=>{

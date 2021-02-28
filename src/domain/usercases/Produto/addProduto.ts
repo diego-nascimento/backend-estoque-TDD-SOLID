@@ -1,4 +1,3 @@
-import { IPhoto } from "../../model/Photo";
 import { IProduto } from "../../model/produto";
 
 export interface ProdutoPhotoEntry{
@@ -9,7 +8,7 @@ export interface IProdutoEntry{
   name: string,
   description: string,
   resume: string,
-  photos: Array<ProdutoPhotoEntry>
+  photos: Array<number>
 }
 
 export interface addProdutouseCase{

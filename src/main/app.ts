@@ -1,6 +1,7 @@
-import { timeStamp } from 'console';
 import express from 'express'
-import route from './routes'
+import CategoriaRoutes from './routes/Categoria/CategoriaRoutes'
+import PhotoRoutes from './routes/Photo/PhotoRoutes'
+import ProdutoRoutes from './routes/Produto/ProdutoRoutes'
 
 class server{
   public server;
@@ -15,7 +16,9 @@ class server{
   }
 
   routes(){
-    this.server.use(route)
+    this.server.use(CategoriaRoutes)
+    this.server.use(PhotoRoutes)
+    this.server.use(ProdutoRoutes)
   }
 }
 
