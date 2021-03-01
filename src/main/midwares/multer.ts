@@ -6,6 +6,7 @@ import multerS3 from 'multer-s3';
 import dadosacesso from '../config/s3';
 require('dotenv').config();
 
+
 aws.config.update(dadosacesso);
 
 
@@ -26,7 +27,7 @@ const storageTypes = {
   }),
   s3: multerS3({
     s3: new aws.S3(),
-    bucket: 'entrega-demo',
+    bucket: 'loja-tdd',
     contentType: multerS3.AUTO_CONTENT_TYPE,
     acl: 'public-read',
     key: (req, file, cb) => {

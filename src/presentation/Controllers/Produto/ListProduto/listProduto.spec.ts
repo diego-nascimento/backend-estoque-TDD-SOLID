@@ -7,6 +7,7 @@ const fakeProduto: IProduto = {
   description: 'fake desc',
   id: 1,
   name: 'fake name',
+  preco: 25.15,
   resume: 'fake resume',
   photos: [
     {

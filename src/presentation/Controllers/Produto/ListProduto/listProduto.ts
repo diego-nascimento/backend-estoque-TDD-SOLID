@@ -1,8 +1,4 @@
-import { addProdutouseCase } from "../../../../domain/usercases/Produto/addProduto";
-import { ok, serverError } from "../../../helpers/http-helpers";
-import { Icontrollers } from "../../../protocols/controllers";
-import { httpRequest, httpResponse } from "../../../protocols/http";
-import {ListProdutouseCase} from '../../../../domain/usercases/Produto/listProduto'
+import {Icontrollers, ListProdutouseCase, httpRequest, ok, serverError, httpResponse} from './protocols'
 
 
 export class ListProduto implements Icontrollers{

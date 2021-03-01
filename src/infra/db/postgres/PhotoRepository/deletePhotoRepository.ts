@@ -1,5 +1,4 @@
-import {deletePhotoRepository} from './protocols'
-import {PrismaClient} from '@prisma/client'
+import {PrismaClient, deletePhotoRepository} from './protocols'
 
 const Prisma = new PrismaClient()
 

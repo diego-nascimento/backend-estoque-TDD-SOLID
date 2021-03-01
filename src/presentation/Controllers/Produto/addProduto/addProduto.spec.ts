@@ -43,6 +43,7 @@ describe('add Produto', ()=>{
       body: {
         description: 'desc test',
         resume: 'resume test',
+        preco: 25.15,
         photos: [
           1, 2, 3
         ],
@@ -61,6 +62,7 @@ describe('add Produto', ()=>{
       body: {
         name: 'name test',
         resume: 'resume test',
+        preco: 25.15,
         photos: [
           1, 2, 3
         ],
@@ -78,6 +80,7 @@ describe('add Produto', ()=>{
     const httpRequest: httpRequest = {
       body: {
         name: 'name test',
+        preco: 25.15,
         description: 'description test',
         photos: [
           1, 2, 3
@@ -97,6 +100,7 @@ describe('add Produto', ()=>{
       body: {
         name: 'name test',
         description: 'description test',
+        preco: 25.15,
         resume: 'resume test',
         categoria: 1
       }
@@ -113,6 +117,7 @@ describe('add Produto', ()=>{
       body: {
         name: 'name test',
         description: 'description test',
+        preco: 25.15,
         resume: 'resume test',
         photos: [
           1, 2, 3
@@ -154,7 +159,8 @@ describe('add Produto', ()=>{
         photos: [
           1, 2, 3
         ],
-        categoria: 1
+        categoria: 1,
+        preco: 25.15
       }
     }
     const serverErrorTest = serverError(new Error('teste'))

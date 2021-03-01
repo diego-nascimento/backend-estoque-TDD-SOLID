@@ -1,6 +1,4 @@
-import {listProdutoCategoriaRepository} from '../../../../data/protocols/Produtos/listProdutoCategoriaRepository'
-import {PrismaClient} from '@prisma/client'
-import { IProduto } from '../../../../domain/model/produto'
+import {PrismaClient, IProduto, listProdutoCategoriaRepository} from './protocols'
 
 const prisma = new PrismaClient
 

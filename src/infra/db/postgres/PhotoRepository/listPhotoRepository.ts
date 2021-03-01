@@ -1,6 +1,4 @@
-import {listPhotoRepository} from './protocols'
-import {PrismaClient} from '@prisma/client'
-import { IPhoto } from '../../../../domain/model/Photo'
+import {PrismaClient, listPhotoRepository, IPhoto} from './protocols'
 
 const prisma = new PrismaClient()
 

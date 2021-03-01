@@ -1,7 +1,4 @@
-import { Icontrollers } from "../../../protocols/controllers";
-import { httpRequest, httpResponse } from "../../../protocols/http";
-import {getProduto} from '../../../../domain/usercases/Produto/getProduto'
-import { badRequest, ok, serverError } from "../../../helpers/http-helpers";
+import {Icontrollers, httpResponse, serverError, ok,badRequest, getProduto, httpRequest} from './protocols'
 
 export class getProdutoPresentation implements Icontrollers{
   private readonly getProdutouseCcase: getProduto

@@ -8,6 +8,15 @@ const fakeProduto: IProduto ={
   id: 1,
   name: 'fake name',
   resume: 'fake resume',
+  preco: 1.5, 
+  categoria: {
+    id: 1,
+    name: 'fake cat',
+    photo:{
+      id: 1,
+      url: 'fake url'
+    }
+  },
   photos: [
     {
       id: 1,

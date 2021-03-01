@@ -1,7 +1,4 @@
-import { badRequest, ok, serverError } from "../../../helpers/http-helpers";
-import { Icontrollers } from "../../../protocols/controllers";
-import { httpRequest, httpResponse } from "../../../protocols/http";
-import {ListProdutosCategoria} from '../../../../domain/usercases/Produto/listProdutos-Categoria'
+import {httpResponse, serverError,ok, httpRequest, Icontrollers, badRequest, ListProdutosCategoria} from './protocols'
 
 export class ListProdutoCategoria implements Icontrollers{
   private readonly listProdutoCategoriauseCase: ListProdutosCategoria

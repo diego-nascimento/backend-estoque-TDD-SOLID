@@ -1,8 +1,4 @@
-import { dbAddProduto } from "../../../../data/useCases/Produto/addProduto";
-import { IProduto } from "../../../../domain/model/produto";
-import {PrismaClient} from '@prisma/client'
-import { IProdutoEntry } from "../../../../domain/usercases/Produto/addProduto";
-import { addProdutoRepository } from "../../../../data/protocols/Produtos/addProdutoRepository";
+import {IProduto, PrismaClient, IProdutoEntry, addProdutoRepository} from './protocols'
 
 const prisma  = new PrismaClient()
 

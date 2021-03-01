@@ -1,9 +1,4 @@
-import { IProduto } from "../../../../domain/model/produto";
-import { addProdutouseCase, IProdutoEntry, ProdutoPhotoEntry } from "../../../../domain/usercases/Produto/addProduto";
-import { badRequest, ok, serverError } from "../../../helpers/http-helpers";
-import { Icontrollers } from "../../../protocols/controllers";
-import { httpRequest, httpResponse } from "../../../protocols/http";
-import { IPhotoEntry } from "../../Photo/addPhoto/protocols";
+import {IProduto, badRequest, httpRequest, ok, serverError, Icontrollers, ProdutoPhotoEntry, addProdutouseCase,httpResponse } from './protocols'
 
 
 export class addProduto implements Icontrollers{

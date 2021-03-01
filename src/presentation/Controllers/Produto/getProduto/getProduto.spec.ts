@@ -2,7 +2,6 @@ import {getProdutoPresentation} from './getProduto'
 import {getProduto} from '../../../../domain/usercases/Produto/getProduto'
 import { IProduto } from '../../../../domain/model/produto'
 import { httpRequest } from '../../../protocols/http'
-import { serverError } from '../../../helpers/http-helpers'
 
 const fakeProduto:IProduto = {
   categoria: {
@@ -14,6 +13,7 @@ const fakeProduto:IProduto = {
     }
   },
   description: 'fake desc',
+  preco: 25.15,
   id: 1,
   name: 'fake name',
   photos:[
