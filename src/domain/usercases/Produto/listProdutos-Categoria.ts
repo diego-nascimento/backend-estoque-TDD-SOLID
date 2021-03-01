@@ -1,5 +1,5 @@
 import { IProduto } from "../../model/produto";
 
 export interface ListProdutosCategoria{
-  list(categoria: number): Promise<Array<IProduto>>
+  list(categoria: number, page: number): Promise<Array<IProduto>>
 }

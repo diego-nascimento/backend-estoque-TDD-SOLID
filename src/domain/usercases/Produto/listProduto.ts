@@ -1,5 +1,5 @@
 import { IProduto } from "../../model/produto";
 
-export interface ListProduto{
-  list():Promise<Array<IProduto>>
+export interface ListProdutouseCase{
+  list(page: number):Promise<Array<IProduto>>
 }

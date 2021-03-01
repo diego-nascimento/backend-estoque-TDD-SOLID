@@ -1,3 +1,4 @@
+import { Icategoria } from "./categoria";
 import { IPhoto } from "./Photo";
 
 export interface IProduto{
@@ -6,4 +7,6 @@ export interface IProduto{
   description: string,
   resume: string
   photos: Array<IPhoto>
+  categoria: Icategoria
+  preco: number
 }

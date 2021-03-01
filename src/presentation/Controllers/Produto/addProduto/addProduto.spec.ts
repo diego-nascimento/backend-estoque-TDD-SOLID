@@ -15,7 +15,16 @@ const fakeProduto: IProduto ={
   name: 'fake name',
   description: 'fake desc',
   resume: 'fake resume',
-  photos: [fakePhoto, fakePhoto]
+  preco: 15.25,
+  photos: [fakePhoto, fakePhoto],
+  categoria: {
+    id: 1,
+    name: 'fake name',
+    photo: {
+      id: 1,
+      url: 'fake url'
+    }
+  }
 }
 
 const makeaddProdutouseCase = ()=>{
@@ -36,7 +45,8 @@ describe('add Produto', ()=>{
         resume: 'resume test',
         photos: [
           1, 2, 3
-        ]
+        ],
+        categoria: 1
       }
     }
     const response = await sut.handle(httpRequest)
@@ -53,7 +63,8 @@ describe('add Produto', ()=>{
         resume: 'resume test',
         photos: [
           1, 2, 3
-        ]
+        ],
+        categoria: 1
       }
     }
     const response = await sut.handle(httpRequest)
@@ -70,7 +81,8 @@ describe('add Produto', ()=>{
         description: 'description test',
         photos: [
           1, 2, 3
-        ]
+        ],
+        categoria: 1
       }
     }
     const response = await sut.handle(httpRequest)
@@ -85,12 +97,50 @@ describe('add Produto', ()=>{
       body: {
         name: 'name test',
         description: 'description test',
-        resume: 'resume test'
+        resume: 'resume test',
+        categoria: 1
       }
     }
     const response = await sut.handle(httpRequest)
     expect(response.statusCode).toBe(400)
     expect(response.body).toEqual({Error: 'Bad Request: Missing Param: photos'})
+
+  })
+
+  test('Should return 400 if no categoria is provided', async ()=>{
+    const sut = new addProduto(makeaddProdutouseCase())
+    const httpRequest: httpRequest = {
+      body: {
+        name: 'name test',
+        description: 'description test',
+        resume: 'resume test',
+        photos: [
+          1, 2, 3
+        ]
+      }
+    }
+    const response = await sut.handle(httpRequest)
+    expect(response.statusCode).toBe(400)
+    expect(response.body).toEqual({Error: 'Bad Request: Missing Param: categoria'})
+
+  })
+
+  test('Should return 400 if no preço is provided', async ()=>{
+    const sut = new addProduto(makeaddProdutouseCase())
+    const httpRequest: httpRequest = {
+      body: {
+        name: 'name test',
+        description: 'description test',
+        resume: 'resume test',
+        categoria: 1,
+        photos: [
+          1, 2, 3
+        ]
+      }
+    }
+    const response = await sut.handle(httpRequest)
+    expect(response.statusCode).toBe(400)
+    expect(response.body).toEqual({Error: 'Bad Request: Missing Param: preco'})
 
   })
 
@@ -103,7 +153,8 @@ describe('add Produto', ()=>{
         resume: 'resume test',
         photos: [
           1, 2, 3
-        ]
+        ],
+        categoria: 1
       }
     }
     const serverErrorTest = serverError(new Error('teste'))
@@ -123,9 +174,11 @@ describe('add Produto', ()=>{
         name: 'name test',
         description: 'description test',
         resume: 'resume test',
+        preco: 25.25,
         photos: [
         1, 2, 3
-        ]
+        ],
+        categoria: 1
       }
     }
     const response = await sut.handle(httpRequest)

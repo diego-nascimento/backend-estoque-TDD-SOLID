@@ -11,20 +11,24 @@ generator client {
 }
 
 model categoria {
-  id        Int      @id @default(autoincrement())
-  name      String   @db.VarChar(255)
-  createdAt DateTime @default(now()) @db.Timestamp(6)
-  photos    photo?   @relation(fields: [photoId], references: [id])
+  id        Int       @id @default(autoincrement())
+  name      String    @db.VarChar(255)
+  createdAt DateTime  @default(now()) @db.Timestamp(6)
+  photos    photo?    @relation(fields: [photoId], references: [id])
   photoId   Int?
+  produto   produto[]
 }
 
 model produto {
-  id          Int      @id @default(autoincrement())
-  name        String   @db.VarChar(255)
-  description String   @db.VarChar(255)
-  resume      String   @db.VarChar(255)
-  createdAt   DateTime @default(now()) @db.Timestamp(6)
+  id          Int       @id @default(autoincrement())
+  name        String    @db.VarChar(255)
+  description String    @db.VarChar(255)
+  preco       Float
+  resume      String    @db.VarChar(255)
+  createdAt   DateTime  @default(now()) @db.Timestamp(6)
   photos      photo[]
+  categoria   categoria @relation(fields: [categoriaId], references: [id])
+  categoriaId Int
 }
 
 model photo {

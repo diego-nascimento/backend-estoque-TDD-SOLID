@@ -3,6 +3,7 @@ import { addProdutouseCase, IProdutoEntry, ProdutoPhotoEntry } from "../../../..
 import { badRequest, ok, serverError } from "../../../helpers/http-helpers";
 import { Icontrollers } from "../../../protocols/controllers";
 import { httpRequest, httpResponse } from "../../../protocols/http";
+import { IPhotoEntry } from "../../Photo/addPhoto/protocols";
 
 
 export class addProduto implements Icontrollers{
@@ -14,7 +15,7 @@ export class addProduto implements Icontrollers{
 
   async handle(httpRequest: httpRequest): Promise<httpResponse>{
     try {
-      const requiredFields = ['name', 'description', 'resume', 'photos']
+      const requiredFields = ['name', 'description', 'resume', 'photos', 'categoria', 'preco']
 
     for (const field of requiredFields) {
       if(!httpRequest.body[field]){
@@ -22,7 +23,8 @@ export class addProduto implements Icontrollers{
       }
     }
     
-    const {name, description, resume} = httpRequest.body
+    const {name, description, resume, preco} = httpRequest.body
+    const categoria = parseInt(httpRequest.body.categoria)
     const photosData: Array<number> = httpRequest.body.photos
     const photos: Array<ProdutoPhotoEntry> = photosData.map(id =>{
       return{
@@ -31,7 +33,7 @@ export class addProduto implements Icontrollers{
     })
 
     const response: IProduto = await this.addProdutoUSE.add({
-      name, description, resume, photos
+      name, description, resume, photos, categoria, preco
     })
 
     return ok(response)

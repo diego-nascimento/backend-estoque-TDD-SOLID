@@ -38,7 +38,6 @@ const makegetPhotoRepo = ()=>{
 const makedeleteFileSlug = ()=>{
   class deleteFileSlug implements IdeleteFile{
     delete(fileName: string): boolean{
-
       return true
     }
   }

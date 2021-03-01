@@ -4,11 +4,14 @@ export interface ProdutoPhotoEntry{
   id:number
 }
 
+
 export interface IProdutoEntry{
   name: string,
   description: string,
   resume: string,
-  photos: Array<number>
+  photos: Array<ProdutoPhotoEntry>
+  categoria: number
+  preco: number
 }
 
 export interface addProdutouseCase{
