@@ -19,10 +19,10 @@ Segue também na pasta raiz do projeto, um arquivo onde se encontram todas as ro
 Para executar a aplicação. Execute os seguintes passos:
 
   <ul>
-    <li>Configure um banco de dados POSTGRES</li>
-    <li>Configure o arquivo .env</li>
-    <li>execute prisma migrate dev --preview-feature para que o prisma ORM crie as tabelas no banco</li>
+  <li>Configure um banco de dados POSTGRES</li>
     <li>Execute: git clone https://github.com/diego-nascimento/BackEnd-Store-TS-TDD-SOLID-estudo</li>
+    <li>execute prisma migrate dev --preview-feature para que o prisma ORM crie as tabelas no banco</li>
+    <li>Configure o arquivo .env</li>
     <li>yarn install</li>
     <li>yarn dev</li>
   </ul>
