@@ -1,5 +1,5 @@
 import fs from 'fs';
-import {IdeleteFile} from './protocols'
+import {IdeleteFile} from '../protocols'
 import path from 'path'
 
 export class deleteFile implements IdeleteFile{
@@ -11,5 +11,6 @@ export class deleteFile implements IdeleteFile{
       throw new Error(error)
     }
   }
+
 }
 

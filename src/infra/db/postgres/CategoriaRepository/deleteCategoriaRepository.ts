@@ -12,7 +12,7 @@ export class deleteCategoriaRepo implements deleteCategoriaRepository{
         }
       })
       if(!teste){
-        throw new Error('Provided category do not exist')
+        throw new Error('Category do not exist')
       }
       const response = await prisma.categoria.delete({
         where:{

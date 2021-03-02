@@ -34,6 +34,7 @@ model produto {
 model photo {
   id         Int         @id @default(autoincrement())
   url        String      @db.VarChar(255)
+  key        String      @db.VarChar(255)
   createdAt  DateTime    @default(now()) @db.Timestamp(6)
   categorias categoria[]
   produto    produto[]

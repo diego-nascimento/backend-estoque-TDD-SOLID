@@ -12,7 +12,7 @@ export class getPhotoPostGres implements getPhotoRepository{
       }
     })
     if(!response){
-      throw new Error('Photo provided do not exists')  
+      throw new Error('Photo do not exists')  
     }
     const photoGet: IPhoto = {
       id: response?.id,

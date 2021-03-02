@@ -9,11 +9,10 @@ export class addPhoto implements Icontrollers{
 
   async handle(httpRequest: httpRequest): Promise<httpResponse>{
     try {
-      
       if(!httpRequest.file){
         return badRequest(Error('Nenhum arquivo foi enviado'))
       }else{
-        const requiredFields = ['filename'] 
+        const requiredFields = ['location'] 
         for (const field of requiredFields) {
           if(httpRequest.file[field] === undefined){
             return badRequest(Error('Nenhum arquivo foi enviado'))
@@ -22,10 +21,11 @@ export class addPhoto implements Icontrollers{
       }
       
     
-    const url = httpRequest.file.filename
+    const url = httpRequest.file.location
+    const key: string = httpRequest.file.key
     const response: IPhoto = await this.PhotoUseCase.handle({
-      url
-    })
+      url,
+    }, key)
     return ok(response)
     } catch (error) {
       return serverError(error)

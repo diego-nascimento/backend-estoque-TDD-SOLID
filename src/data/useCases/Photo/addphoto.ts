@@ -9,8 +9,8 @@ export class dbAddPhoto implements addPhotoCase{
     this.addPhotoRepo = addPhotoRepo;
   }
 
-  async handle(photo: IPhotoEntry): Promise<IPhoto>{
-    const response: IPhoto = await this.addPhotoRepo.add(photo)
+  async handle(photo: IPhotoEntry, key: string): Promise<IPhoto>{
+    const response: IPhoto = await this.addPhotoRepo.add(photo, key)
     return response
   }
 

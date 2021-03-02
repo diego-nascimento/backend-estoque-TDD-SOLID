@@ -1,5 +1,5 @@
 
-import { httpRequest, httpResponse, Icontrollers, ok, serverError, listPhotosUseCase } from "../listPhotos/protocols";
+import { httpRequest, httpResponse, Icontrollers, ok, serverError, listPhotosUseCase } from "./protocols";
 
 
 export class ListPhotos implements Icontrollers{

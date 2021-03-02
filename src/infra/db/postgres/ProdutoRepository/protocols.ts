@@ -16,3 +16,11 @@ export {listProdutoCategoriaRepository} from '../../../../data/protocols/Produto
 export { listProdutoRepository } from "../../../../data/protocols/Produtos/listProdutoRepository";
 export { IPhoto } from "../../../../domain/model/Photo";
 
+
+//updateProduto
+
+export { updateProdutoRepository } from "../../../../data/protocols/Produtos/updateProdutoRepository";
+
+//delete Produto
+
+export {deleteProdutoRepository} from '../../../../data/protocols/Produtos/deleteProdutoRepository'

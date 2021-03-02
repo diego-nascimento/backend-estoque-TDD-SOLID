@@ -5,5 +5,5 @@ export interface IPhotoEntry{
 }
 
 export interface addPhotoCase{
-  handle(photo: IPhotoEntry): Promise<IPhoto>
+  handle(photo: IPhotoEntry, key: string): Promise<IPhoto>
 }

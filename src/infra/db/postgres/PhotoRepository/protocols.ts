@@ -7,6 +7,7 @@ export {addPhotoRepository} from '../../../../data/protocols/Photo/addPhotoRepos
 
 //delete photo
 export {deletePhotoRepository} from '../../../../data/protocols/Photo/deletePhotoRepository'
+export {IdeleteFile} from '../../../Files/protocols'
 
 //get Photo
 export {getPhotoRepository} from '../../../../data/protocols/Photo/getPhoto'

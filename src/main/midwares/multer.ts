@@ -3,7 +3,7 @@ import path from 'path';
 import crypto from 'crypto'
 import aws from 'aws-sdk';
 import multerS3 from 'multer-s3';
-import dadosacesso from '../config/s3';
+import dadosacesso from '../../infra/Files/S3/config/s3';
 require('dotenv').config();
 
 
@@ -42,7 +42,7 @@ const storageTypes = {
 
 export default  {
   dest: path.resolve(__dirname, '..', '..', 'uploads'),
-  storage: storageTypes['local'],
+  storage: storageTypes['s3'],
   limits: {
     fileSize: 2 * 1024 * 1024,
   },

@@ -28,7 +28,7 @@ describe('add Photo', ()=>{
     expect (response.body).toEqual({Error: 'Bad Request: Nenhum arquivo foi enviado'})
   })
 
-  test('should return 400 if filename is not provided', async () => {
+  test('should return 400 if location is not provided', async () => {
     const sut = new addPhoto(makeaddPhotoCase())
     const httpRequest: httpRequest = {
       file:{
@@ -46,7 +46,8 @@ describe('add Photo', ()=>{
     
     const httpRequest: httpRequest = {
       file: {
-        filename: 'filename teste'
+        location: 'filename teste',
+        key: 'keyteste'
       }
     }
 

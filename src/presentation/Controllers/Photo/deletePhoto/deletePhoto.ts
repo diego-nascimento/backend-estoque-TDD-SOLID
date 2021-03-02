@@ -1,15 +1,12 @@
 
-import {Icontrollers, httpRequest, serverError, badRequest, ok, httpResponse, deletePhotoCase, IPhoto, getPhotouseCase, IdeleteFile} from './protocols'
+import {Icontrollers, httpRequest, serverError, badRequest, ok, httpResponse, deletePhotoCase} from './protocols'
 
 export class deletePhoto implements Icontrollers{
   private DeletePhotoCase: deletePhotoCase
-  private getPhotouseCase: getPhotouseCase
-  private DeleteFile: IdeleteFile
+  
 
-  constructor(deleteUseCase: deletePhotoCase, getPhotouseCase: getPhotouseCase, deleteFile: IdeleteFile){
+  constructor(deleteUseCase: deletePhotoCase){
     this.DeletePhotoCase = deleteUseCase
-    this.getPhotouseCase = getPhotouseCase
-    this.DeleteFile = deleteFile
   }
 
   async handle(httpRequest: httpRequest): Promise<httpResponse>{
@@ -22,14 +19,7 @@ export class deletePhoto implements Icontrollers{
       }
     }
     const id: number = parseInt(httpRequest.params.id, 10)
-    const photo:IPhoto = await this.getPhotouseCase.get(id)
-    if(photo.url !== undefined){
-      const fileName = photo.url
-      if(!this.DeleteFile.delete(fileName)){
-        return serverError(Error('Arquivo não conseguiu ser deletado'))
-      }
-      
-    }
+    
     
     const response = await this.DeletePhotoCase.handle(id)
     return ok(response)
