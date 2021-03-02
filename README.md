@@ -10,7 +10,7 @@
     <li><b>Express </b></li>
 </ul>
  
-<h2>Este projeto é um cadastro de produtos, feito para praticar typescript e conceitos de TDD, clean Architeture and SOLID<h2>
+<h2>Este projeto é um cadastro de produtos, feito para praticar typescript e conceitos de TDD, clean Architeture and SOLID</h2>
 
 Segue no arguivo também na pasta um arquivo example .env onde segue um exemplo das informações do arquivo .env
 
