@@ -1,14 +1,15 @@
 # BackEnd-Store-TS-TDD-SOLID-estudo
 
 <p>#Tecnologias:</p>
-  <b>NodeJS</b>
-  <b>Typescript </b>
-  <b>Jest </b>
-  <b>Amazon S3 </b>
-  <b>Multer </b>
-  <b>Express </b>
-  
-  
+  <ul>
+  <li><b>NodeJS</b></li>
+  <li><b>Typescript </b></li>
+  <li><b>Jest </b></li>
+  <li><b>Amazon S3 </b></li>
+  <li> <b>Multer </b></li>
+  <li><b>Express </b></li>
+</ul>
+ 
 Este projeto é um cadastro de produtos, feito para praticar typescript e conceitos de TDD, clean Architeture and SOLID
 
 photo:
