@@ -42,6 +42,6 @@ describe('List Categorias', ()=>{
     const httpRequest: httpRequest = {}
     const response =await sut.handle(httpRequest)
     expect(response.statusCode).toBe(200)
-    expect(response.body).toEqual(fakeArray)
+    expect(response.body.data).toEqual(fakeArray)
   })
 })

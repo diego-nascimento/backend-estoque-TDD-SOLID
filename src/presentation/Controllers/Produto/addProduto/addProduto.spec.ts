@@ -189,7 +189,7 @@ describe('add Produto', ()=>{
     }
     const response = await sut.handle(httpRequest)
     expect(response.statusCode).toBe(200)
-    expect(response.body).toEqual(fakeProduto)
+    expect(response.body.data).toEqual(fakeProduto)
 
   })
 

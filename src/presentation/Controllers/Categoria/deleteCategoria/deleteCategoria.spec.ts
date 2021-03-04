@@ -52,6 +52,6 @@ describe('delete Categoria', ()=>{
     
     const response = await sut.handle(httpRequest)
     expect(response.statusCode).toBe(200)
-    expect(response.body).toEqual(true)
+    expect(response.body.data).toEqual(true)
   })
 })

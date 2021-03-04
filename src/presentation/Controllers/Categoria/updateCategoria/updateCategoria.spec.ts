@@ -71,7 +71,7 @@ describe('updateCategoria', ()=>{
     expect(response.body).toEqual({Error: 'Something went wrong: teste'})
   })
 
-  test('should return 400 if no categoria_id in query is provided', async ()=>{
+  test('should return 200 if works', async ()=>{
     const sut  = new updateCategoria(makeCategoriaUserCase())
     const httpRequest: httpRequest = {
       body:{
@@ -85,7 +85,7 @@ describe('updateCategoria', ()=>{
 
     const response = await sut.handle(httpRequest);
     expect(response.statusCode).toBe(200)
-    expect(response.body).toEqual({
+    expect(response.body.data).toEqual({
       id: 1,
       name: 'fake name',
       photo: {

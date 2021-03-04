@@ -60,7 +60,7 @@ describe('addCategoria', ()=>{
     
     const response: httpResponse = await sut.handle(httpRequest)
     expect(response.statusCode).toBe(200)
-    expect(response.body).toEqual({
+    expect(response.body.data).toEqual({
       id: 1,
       name: 'fake name',
       photo: 

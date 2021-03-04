@@ -33,7 +33,7 @@ describe('List Photo', ()=>{
     expect(response.body).toEqual({ Error: 'Something went wrong: teste' })
   })
 
-  test('Should return 500 if something goes wrong', async ()=>{
+  test('Should return 200 if something goes wrong', async ()=>{
     const sut = new ListPhotos(makeListPhotoSlug())
     
     const httpRequest: httpRequest = {}
@@ -41,6 +41,6 @@ describe('List Photo', ()=>{
     const response = await sut.handle(httpRequest)
     
     expect(response.statusCode).toBe(200)
-    expect(response.body).toEqual(fakeArray)
+    expect(response.body.data).toEqual(fakeArray)
   })
 })
