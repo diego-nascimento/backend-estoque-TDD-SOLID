@@ -12,3 +12,8 @@ export {ListProdutoCategoriaFactory} from '../factories/Produto/listProdutoCateg
 export {getProdutoFactory} from '../factories/Produto/getProdutoFactory'
 export {updateProdutoFactory} from '../factories/Produto/updateProdutoFactory'
 export {deleteProdutoFactory} from '../factories/Produto/deleteProdutoFactory'
+export {addEstoqueFactory} from '../factories/Estoque/addEstoqueFactory'
+export {checkAvailableFactory} from '../factories/Estoque/checkAvailableFactory'
+export {removeEstoqueFactory} from '../factories/Estoque/removeEstoqueFactory'
+export {countEstoqueFactory} from '../factories/Estoque/countEstoqueFactory'
+ 

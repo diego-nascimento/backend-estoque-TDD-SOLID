@@ -2,6 +2,7 @@ import express from 'express'
 import CategoriaRoutes from './routes/Categoria/CategoriaRoutes'
 import PhotoRoutes from './routes/Photo/PhotoRoutes'
 import ProdutoRoutes from './routes/Produto/ProdutoRoutes'
+import EstoqueRoutes from './routes/Estoque/EstoqueRoutes'
 
 class server{
   public server;
@@ -19,6 +20,7 @@ class server{
     this.server.use(CategoriaRoutes)
     this.server.use(PhotoRoutes)
     this.server.use(ProdutoRoutes)
+    this.server.use(EstoqueRoutes)
   }
 }
 

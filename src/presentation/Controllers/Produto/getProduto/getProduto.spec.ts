@@ -42,7 +42,7 @@ describe('get Produto', ()=>{
     }
     const response = await sut.handle(httpRequest)
     expect(response.statusCode).toBe(400)
-    expect(response.body).toEqual({Error: 'Bad Request: Missing Param: produto'})
+    expect(response.body.data).toEqual({Error: 'Bad Request: Missing Param: produto'})
   })
 
   test('Should return 400 if no produto is provided',async ()=>{
@@ -54,7 +54,7 @@ describe('get Produto', ()=>{
     }
     const response = await sut.handle(httpRequest)
     expect(response.statusCode).toBe(400)
-    expect(response.body).toEqual({Error: 'Bad Request: Missing Param: produto'})
+    expect(response.body.data).toEqual({Error: 'Bad Request: Missing Param: produto'})
   })
 
   test('Should return 500 if something goes wrong', async ()=>{
@@ -70,7 +70,7 @@ describe('get Produto', ()=>{
     })
     const response = await sut.handle(httpRequest)
     expect(response.statusCode).toBe(500)
-    expect(response.body).toEqual({Error: "Something went wrong: teste"})
+    expect(response.body.data).toEqual({Error: "Something went wrong: teste"})
   })
 
   test('Should return 200 if goes right',async ()=>{
@@ -82,6 +82,6 @@ describe('get Produto', ()=>{
     }
     const response = await sut.handle(httpRequest)
     expect(response.statusCode).toBe(200)
-    expect(response.body).toEqual(fakeProduto)
+    expect(response.body.data).toEqual(fakeProduto)
   })
 })

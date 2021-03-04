@@ -12,7 +12,7 @@
  
 <h2>Este projeto é um cadastro de produtos, feito para praticar typescript e conceitos de TDD, clean Architeture and SOLID</h2>
 
-Segue no arguivo também na pasta um arquivo example .env onde segue um exemplo das informações do arquivo .env
+Segue na pasta raiz um arquivo example .env onde segue um exemplo das informações do arquivo .env
 
 Segue também um arquivo onde se encontram todas as rotas,, onde estam informados os methods, urls, envio de informação e formato de retorno de cada rota da aplicação
 

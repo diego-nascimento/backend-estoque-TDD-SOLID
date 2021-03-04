@@ -29,6 +29,7 @@ model produto {
   photos      photo[]
   categoria   categoria @relation(fields: [categoriaId], references: [id])
   categoriaId Int
+  estoque     estoque[]
 }
 
 model photo {
@@ -39,4 +40,12 @@ model photo {
   categorias categoria[]
   produto    produto[]
 
+}
+
+model estoque {
+  id         Int     @id @default(autoincrement())
+  produto    produto @relation(fields: [produtoid], references: [id])
+  produtoid  Int
+  tipo       Int
+  quantidade Int
 }

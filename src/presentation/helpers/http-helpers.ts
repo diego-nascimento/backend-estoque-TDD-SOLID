@@ -24,7 +24,9 @@ export const badRequest = (error: Error): httpResponse =>{
 export const ok = (data: any): httpResponse => {
   const response: httpResponse = {
     statusCode: 200,
-    body: data
+    body: {
+      data
+    }
   }
 
   return response
