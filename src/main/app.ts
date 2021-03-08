@@ -3,6 +3,7 @@ import CategoriaRoutes from './routes/Categoria/CategoriaRoutes'
 import PhotoRoutes from './routes/Photo/PhotoRoutes'
 import ProdutoRoutes from './routes/Produto/ProdutoRoutes'
 import EstoqueRoutes from './routes/Estoque/EstoqueRoutes'
+import SectionRoutes from './routes/Section/sectionRoutes'
 
 class server{
   public server;
@@ -21,6 +22,7 @@ class server{
     this.server.use(PhotoRoutes)
     this.server.use(ProdutoRoutes)
     this.server.use(EstoqueRoutes)
+    this.server.use(SectionRoutes)
   }
 }
 

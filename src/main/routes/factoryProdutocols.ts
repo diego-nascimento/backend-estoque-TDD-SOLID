@@ -16,4 +16,6 @@ export {addEstoqueFactory} from '../factories/Estoque/addEstoqueFactory'
 export {checkAvailableFactory} from '../factories/Estoque/checkAvailableFactory'
 export {removeEstoqueFactory} from '../factories/Estoque/removeEstoqueFactory'
 export {countEstoqueFactory} from '../factories/Estoque/countEstoqueFactory'
+export {signUpFactory} from '../factories/Section/signUpFactory'
+export {ActivateAccountFactory} from '../factories/Section/ActivateAccount'
  

@@ -1,7 +1,7 @@
-import { Icategoria } from '../../../domain/model/categoria';
-import { ICategoriaEntry } from '../../../domain/usercases/Categoria/addCategoria';
-import {updateCategoriaCase} from '../../../domain/usercases/Categoria/updateCategoria'
-import {updateCategoriaRepository} from '../../protocols/Categoria/updateCategoriaRepository'
+import { Icategoria } from '../../../../domain/model/categoria';
+import { ICategoriaEntry } from '../../../../domain/usercases/Categoria/addCategoria';
+import {updateCategoriaCase} from '../../../../domain/usercases/Categoria/updateCategoria'
+import {updateCategoriaRepository} from '../../../protocols/Categoria/updateCategoriaRepository'
 
 export class dbUpdateCategoria implements  updateCategoriaCase{
   private updateCategoriaRepo: updateCategoriaRepository
