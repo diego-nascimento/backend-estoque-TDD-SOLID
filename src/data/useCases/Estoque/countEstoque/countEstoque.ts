@@ -1,5 +1,5 @@
-import { CountEstoque } from "../../../domain/usercases/Estoque/AmoutEstoque";
-import { countEstoqueRepository } from "../../protocols/Estoque/countEstoqueRepository";
+import { CountEstoque } from "../../../../domain/usercases/Estoque/AmoutEstoque";
+import { countEstoqueRepository } from "../../../protocols/Estoque/countEstoqueRepository";
 
 
 export class dbCountEstoque implements CountEstoque{

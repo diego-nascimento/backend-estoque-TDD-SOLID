@@ -1,6 +1,6 @@
-import { IPhoto } from "../../../domain/model/Photo";
-import { getPhotouseCase } from "../../../domain/usercases/Photo/getPhoto";
-import { getPhotoRepository } from "../../protocols/Photo/getPhoto";
+import { IPhoto } from "../../../../domain/model/Photo";
+import { getPhotouseCase } from "../../../../domain/usercases/Photo/getPhoto";
+import { getPhotoRepository } from "../../../protocols/Photo/getPhoto";
 
 
 export class dbgetPhoto implements getPhotouseCase{

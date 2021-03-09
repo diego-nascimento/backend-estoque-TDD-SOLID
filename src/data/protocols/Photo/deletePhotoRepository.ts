@@ -1,4 +1,4 @@
 
 export interface deletePhotoRepository{
-  delete(photo: number): Promise<boolean>
+  delete(photo: number): Promise<string>
 }

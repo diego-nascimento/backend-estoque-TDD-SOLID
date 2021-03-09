@@ -1,5 +1,5 @@
-import { checkAvailableUseCase } from '../../../domain/usercases/Estoque/CheckAvailable';
-import {checkAvailableRepository} from '../../protocols/Estoque/ckeckAvailableRepository'
+import { checkAvailableUseCase } from '../../../../domain/usercases/Estoque/CheckAvailable';
+import {checkAvailableRepository} from '../../../protocols/Estoque/ckeckAvailableRepository'
 
 export class dbCheckAvailable implements checkAvailableUseCase{
   private checkAvailableRepo: checkAvailableRepository

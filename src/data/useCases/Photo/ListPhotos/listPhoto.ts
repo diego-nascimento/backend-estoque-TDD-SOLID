@@ -1,6 +1,6 @@
-import { IPhoto } from '../../../domain/model/Photo';
-import {listPhotosUseCase} from '../../../domain/usercases/Photo/listPhoto'
-import { listPhotoRepository } from '../../protocols/Photo/ListPhotoRepository';
+import { IPhoto } from '../../../../domain/model/Photo';
+import {listPhotosUseCase} from '../../../../domain/usercases/Photo/listPhoto'
+import { listPhotoRepository } from '../../../protocols/Photo/ListPhotoRepository';
 
 export class dbListPhoto implements listPhotosUseCase{
   private ListPhotoRepo: listPhotoRepository

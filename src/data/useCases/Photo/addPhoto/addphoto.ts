@@ -1,6 +1,6 @@
-import { IPhoto } from '../../../domain/model/Photo';
-import {addPhotoCase, IPhotoEntry} from '../../../domain/usercases/Photo/addPhoto'
-import {addPhotoRepository} from '../../protocols/Photo/addPhotoRepository'
+import { IPhoto } from '../../../../domain/model/Photo';
+import {addPhotoCase, IPhotoEntry} from '../../../../domain/usercases/Photo/addPhoto'
+import {addPhotoRepository} from '../../../protocols/Photo/addPhotoRepository'
 
 export class dbAddPhoto implements addPhotoCase{
   private addPhotoRepo: addPhotoRepository;

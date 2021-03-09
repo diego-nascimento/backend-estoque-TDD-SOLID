@@ -1,5 +1,5 @@
-import { removeEstoqueUseCase } from "../../../domain/usercases/Estoque/RemoveEstoque";
-import { removeEstoqueRepository } from "../../protocols/Estoque/removeEstoqueRepository";
+import { removeEstoqueUseCase } from "../../../../domain/usercases/Estoque/RemoveEstoque";
+import { removeEstoqueRepository } from "../../../protocols/Estoque/removeEstoqueRepository";
 
 
 export class dbRemoveEstoque implements removeEstoqueUseCase{
