@@ -53,6 +53,55 @@ describe('Listar Produtos de uma categoria especifica', ()=>{
     expect(response.body).toEqual({Error: 'Bad Request: Missing param: Categoria'})
   })
 
+  test('Page should be 1 if no params is provided', async ()=>{
+    const ProdutoCategoriaSlug = makeListCategoriaSlug()
+    const sut = new ListProdutoCategoria(ProdutoCategoriaSlug)
+    const httpRequest: httpRequest = {
+      body: {
+       categoria: 1
+      }
+    }
+    const spy = jest.spyOn(ProdutoCategoriaSlug, 'list')
+    
+    await sut.handle(httpRequest)
+    expect(spy).toBeCalledWith(1, 1)
+  })
+
+  test('Page should be 1 if no params page is provided', async ()=>{
+    const ProdutoCategoriaSlug = makeListCategoriaSlug()
+    const sut = new ListProdutoCategoria(ProdutoCategoriaSlug)
+    const httpRequest: httpRequest = {
+      body: {
+       categoria: 1
+      },
+      params:{
+
+      }
+    }
+    const spy = jest.spyOn(ProdutoCategoriaSlug, 'list')
+    
+    await sut.handle(httpRequest)
+    expect(spy).toBeCalledWith(1, 1)
+  })
+
+  test('Page should be 3 if page 3 is provided', async ()=>{
+    const ProdutoCategoriaSlug = makeListCategoriaSlug()
+    const sut = new ListProdutoCategoria(ProdutoCategoriaSlug)
+    const httpRequest: httpRequest = {
+      body: {
+       categoria: 1
+      },
+      params:{
+        page: 3
+      }
+    }
+    const spy = jest.spyOn(ProdutoCategoriaSlug, 'list')
+    
+    await sut.handle(httpRequest)
+    expect(spy).toBeCalledWith(1, 3)
+  })
+
+
   test('Should return 500 if something goes wrong', async ()=>{
     const ProdutoCategoriaSlug = makeListCategoriaSlug()
     const sut = new ListProdutoCategoria(ProdutoCategoriaSlug)
@@ -71,6 +120,8 @@ describe('Listar Produtos de uma categoria especifica', ()=>{
     expect(response.statusCode).toBe(500)
     expect(response.body).toEqual({Error: 'Something went wrong: teste'})
   })
+
+
 
   test('Should return 200 if goes ok', async ()=>{
     const ProdutoCategoriaSlug = makeListCategoriaSlug()

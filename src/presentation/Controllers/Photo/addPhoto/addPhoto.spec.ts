@@ -32,13 +32,30 @@ describe('add Photo', ()=>{
     const sut = new addPhoto(makeaddPhotoCase())
     const httpRequest: httpRequest = {
       file:{
-        
+        key: 'keyteste'
       }
     }
 
     const response = await sut.handle(httpRequest)
     expect(response.statusCode).toBe(400)
     expect (response.body).toEqual({Error: 'Bad Request: Nenhum arquivo foi enviado'})
+  })
+
+  test('should return 500 if handle throws', async () => {
+    const slug = makeaddPhotoCase()
+    const sut = new addPhoto(slug)
+    const httpRequest: httpRequest = {
+      file:{
+        location: 'filename teste',
+        key: 'keyteste'
+      }
+    }
+    jest.spyOn(slug, 'handle').mockImplementationOnce(()=>{
+      throw new Error('teste')
+    })
+    const response = await sut.handle(httpRequest)
+    expect(response.statusCode).toBe(500)
+    expect (response.body).toEqual({Error:"Something went wrong: teste"})
   })
 
   test('should return 200 photo is created', async () => {

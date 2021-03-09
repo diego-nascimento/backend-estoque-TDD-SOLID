@@ -55,6 +55,48 @@ describe('list Produto', ()=>{
     expect(response.body).toEqual({"Error": "Something went wrong: teste"})
   })
 
+  test('Page should be 1 if no params is provided', async ()=>{
+    const ListSlug = makeListeProdutoSLug()
+    const sut = new ListProduto(ListSlug)
+    const httpRequest: httpRequest = {
+    }
+    const spy = jest.spyOn(ListSlug, 'list')
+
+    await sut.handle(httpRequest)
+    expect(spy).toHaveBeenCalledWith(1)
+    
+  })
+
+  test('Page should be 1 if no page params is provided', async ()=>{
+    const ListSlug = makeListeProdutoSLug()
+    const sut = new ListProduto(ListSlug)
+    const httpRequest: httpRequest = {
+      params: {
+        
+      }
+    }
+    const spy = jest.spyOn(ListSlug, 'list')
+
+    await sut.handle(httpRequest)
+    expect(spy).toHaveBeenCalledWith(1)
+    
+  })
+
+  test('Page should be 3 page params 3 is provided', async ()=>{
+    const ListSlug = makeListeProdutoSLug()
+    const sut = new ListProduto(ListSlug)
+    const httpRequest: httpRequest = {
+      params:{
+        page: 3
+      }
+    }
+    const spy = jest.spyOn(ListSlug, 'list')
+
+    await sut.handle(httpRequest)
+    expect(spy).toHaveBeenCalledWith(3)
+    
+  })
+
   test('Should return 200 if goes right', async ()=>{
     const ListSlug = makeListeProdutoSLug()
     

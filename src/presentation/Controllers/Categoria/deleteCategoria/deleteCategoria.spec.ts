@@ -5,7 +5,7 @@ import {serverError } from '../addCategoria/protocols'
 const makedeleteCategoriauseCase = ()=>{
   class deleteCategoriauseCaseSlug implements deleteCategoriauseCase{
     async handle(categoria_id: number): Promise<boolean>{
-      return await new Promise(resolve => resolve(true))
+      return Promise.resolve(true)
     }
   }
   return new deleteCategoriauseCaseSlug
@@ -25,22 +25,23 @@ describe('delete Categoria', ()=>{
     expect(response.body).toEqual({Error: 'Bad Request: Missing param id'})
   })
 
-  test('should return 500 if something goes wrong', async ()=>{
-    const sut = new deleteCategoria(makedeleteCategoriauseCase())
+  test('should return 500 if handle throws', async ()=>{
+    const slug = makedeleteCategoriauseCase()
+    const sut = new deleteCategoria(slug)
     const httpRequest = {
       params:{
         id: '2'
       }
     }
-
-    const servererror = serverError(Error('teste'))
-
-    jest.spyOn(sut, 'handle').mockReturnValueOnce(new Promise(resolve => resolve(servererror)))
-
+    jest.spyOn(slug, 'handle').mockImplementationOnce(()=>{
+      throw Error('teste')
+    })
     const response = await sut.handle(httpRequest)
     expect(response.statusCode).toBe(500)
-    expect(response.body).toEqual({Error: 'Something went wrong: teste'})
+    expect(response.body).toEqual({"Error": "Something went wrong: teste"})
   })
+
+  
 
   test('should return 200 if goes ok', async ()=>{
     const sut = new deleteCategoria(makedeleteCategoriauseCase())

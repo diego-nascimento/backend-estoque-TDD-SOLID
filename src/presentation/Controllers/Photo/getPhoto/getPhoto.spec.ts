@@ -30,9 +30,11 @@ describe('getPhoto', ()=>{
   })
 
   test('Should return 500 is something goes wrong',async ()=>{
-    const sut = new getPhoto(makegetPhotouseCase())
-    const servererror = serverError(Error('teste'))
-    jest.spyOn(sut, 'handle').mockReturnValueOnce(new Promise(resolve => resolve(servererror)))
+    const slug = makegetPhotouseCase()
+    const sut = new getPhoto(slug)
+    jest.spyOn(slug, 'get').mockImplementationOnce(()=>{
+      throw new Error('teste')
+    })
     const httpRequest: httpRequest = {
       params:{
         id: 2

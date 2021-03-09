@@ -1,6 +1,6 @@
-import {getProdutoRepository} from '../../protocols/Produtos/getProdutoRespository'
-import {getProduto} from '../../../domain/usercases/Produto/getProduto'
-import { IProduto } from '../../../domain/model/produto'
+import {getProdutoRepository} from '../../../protocols/Produtos/getProdutoRespository'
+import {getProduto} from '../../../../domain/usercases/Produto/getProduto'
+import { IProduto } from '../../../../domain/model/produto'
 
 export class dbGetProduto implements getProduto{
   private readonly getProdutoRepository: getProdutoRepository

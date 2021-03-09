@@ -23,9 +23,11 @@ const makeListPhotoSlug =() =>{
 
 describe('List Photo', ()=>{
   test('Should return 500 if something goes wrong', async ()=>{
-    const sut = new ListPhotos(makeListPhotoSlug())
-    const servererror =  serverError(Error('teste'))
-    jest.spyOn(sut, 'handle').mockReturnValueOnce(new Promise(resolve => resolve(servererror)))
+    const slug = makeListPhotoSlug()
+    const sut = new ListPhotos(slug)
+    jest.spyOn(slug, 'handle').mockImplementationOnce(()=>{
+      throw new Error('teste')
+    })
     const httpRequest: httpRequest = {}
 
     const response = await sut.handle(httpRequest)

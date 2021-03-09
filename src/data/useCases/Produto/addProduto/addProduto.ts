@@ -1,6 +1,6 @@
-import { IProduto } from "../../../domain/model/produto";
-import { addProdutouseCase, IProdutoEntry } from "../../../domain/usercases/Produto/addProduto";
-import { addProdutoRepository } from "../../protocols/Produtos/addProdutoRepository";
+import { IProduto } from "../../../../domain/model/produto";
+import { addProdutouseCase, IProdutoEntry } from "../../../../domain/usercases/Produto/addProduto";
+import { addProdutoRepository } from "../../../protocols/Produtos/addProdutoRepository";
 
 
 export class dbAddProduto implements addProdutouseCase{

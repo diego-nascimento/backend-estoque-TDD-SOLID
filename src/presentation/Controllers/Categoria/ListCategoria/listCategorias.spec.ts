@@ -37,6 +37,18 @@ describe('List Categorias', ()=>{
     expect(response.body).toEqual({Error:"Something went wrong: teste"})
   })
 
+  test('Should return 500 handle throws', async ()=>{
+    const slug = makeListCategoriasUsecaseSlug()
+    const sut = new ListCategoria(slug)
+    jest.spyOn(slug, 'handle').mockImplementationOnce(()=>{
+      throw new Error('teste')
+    })
+    const httpRequest: httpRequest = {}
+    const response =await sut.handle(httpRequest)
+    expect(response.statusCode).toBe(500)
+    expect(response.body).toEqual({Error:"Something went wrong: teste"})
+  })
+
   test('Should return 200 if goes right', async ()=>{
     const sut = new ListCategoria(makeListCategoriasUsecaseSlug())
     const httpRequest: httpRequest = {}

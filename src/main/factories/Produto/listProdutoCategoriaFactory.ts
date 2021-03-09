@@ -1,5 +1,5 @@
 import {ListProdutoCategoria} from '../../../presentation/Controllers/Produto/ListProdutoCategoria/listProdutoCategoria'
-import {dbListProdutoCategoria} from '../../../data/useCases/Produto/listProdutoCategoria'
+import {dbListProdutoCategoria} from '../../../data/useCases/Produto/listProdutoCategoria/listProdutoCategoria'
 import {listProdutoCategoriaPostgres} from '../../../infra/db/postgres/ProdutoRepository/listProdutoCategoriaRepository'
 
 

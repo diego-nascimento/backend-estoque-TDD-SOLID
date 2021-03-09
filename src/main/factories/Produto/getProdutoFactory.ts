@@ -1,5 +1,5 @@
 import {getProdutoPostGres} from '../../../infra/db/postgres/ProdutoRepository/getProdutoRepository'
-import {dbGetProduto} from '../../../data/useCases/Produto/getProduto'
+import {dbGetProduto} from '../../../data/useCases/Produto/getProduto/getProduto'
 import {getProdutoPresentation} from '../../../presentation/Controllers/Produto/getProduto/getProduto'
 
 export const getProdutoFactory = ()=>{

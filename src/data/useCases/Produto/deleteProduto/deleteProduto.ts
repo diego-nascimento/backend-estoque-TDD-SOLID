@@ -1,5 +1,5 @@
-import {deleteProduto} from '../../../domain/usercases/Produto/deleteProduto'
-import {deleteProdutoRepository} from '../../protocols/Produtos/deleteProdutoRepository'
+import {deleteProduto} from '../../../../domain/usercases/Produto/deleteProduto'
+import {deleteProdutoRepository} from '../../../protocols/Produtos/deleteProdutoRepository'
 
 export class dbDeleteProduto implements deleteProduto{
   private readonly deleteProdutoRepo: deleteProdutoRepository

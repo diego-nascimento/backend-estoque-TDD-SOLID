@@ -176,7 +176,7 @@ describe('Update Produto', ()=>{
     expect(response.body).toEqual({Error: 'Bad Request: Missing Param: categoria'})
   })
 
-  test('Should return 400 if no id is provided', async ()=>{
+  test('Should return 400 if no param ID is provided', async ()=>{
     const updateProdutoSlug = makeUpdateProduto()
     const sut = new updateProdutoPresentation(updateProdutoSlug)
     const httpRequest: httpRequest = {
@@ -194,5 +194,77 @@ describe('Update Produto', ()=>{
     const response = await sut.handle(httpRequest)
     expect(response.statusCode).toBe(400)
     expect(response.body).toEqual({Error: 'Bad Request: Missing Param: id'})
+  })
+
+  test('Should return 400 if no id provided in params is provided', async ()=>{
+    const updateProdutoSlug = makeUpdateProduto()
+    const sut = new updateProdutoPresentation(updateProdutoSlug)
+    const httpRequest: httpRequest = {
+      body: {
+        name: 'fake name',
+        description: 'desc test',
+        preco: 25.25,
+        categoria: 1,
+        resume: 'resume test',
+        photos: [
+          1, 2, 3
+        ],
+      },
+      params:{
+        
+      }
+    }
+    const response = await sut.handle(httpRequest)
+    expect(response.statusCode).toBe(400)
+    expect(response.body).toEqual({Error: 'Bad Request: Missing Param: id'})
+  })
+
+  test('Should return 500 update throws', async ()=>{
+    const updateProdutoSlug = makeUpdateProduto()
+    const sut = new updateProdutoPresentation(updateProdutoSlug)
+    const httpRequest: httpRequest = {
+      body: {
+        name: 'fake name',
+        description: 'desc test',
+        preco: 25.25,
+        categoria: 1,
+        resume: 'resume test',
+        photos: [
+          1, 2, 3
+        ],
+      },
+      params:{
+        id: 1
+      }
+    }
+    jest.spyOn(updateProdutoSlug, 'update').mockImplementationOnce(()=>{
+      throw new Error('teste')
+    })
+    const response = await sut.handle(httpRequest)
+    expect(response.statusCode).toBe(500)
+    expect(response.body).toEqual({"Error": "Something went wrong: teste"})
+  })
+
+  test('Should return 200 if succeed', async ()=>{
+    const updateProdutoSlug = makeUpdateProduto()
+    const sut = new updateProdutoPresentation(updateProdutoSlug)
+    const httpRequest: httpRequest = {
+      body: {
+        name: 'fake name',
+        description: 'desc test',
+        preco: 25.25,
+        categoria: 1,
+        resume: 'resume test',
+        photos: [
+          1, 2, 3
+        ],
+      },
+      params:{
+        id: 1
+      }
+    }
+    const response = await sut.handle(httpRequest)
+    expect(response.statusCode).toBe(200)
+    expect(response.body.data).toEqual(fakeProduto)
   })
 })

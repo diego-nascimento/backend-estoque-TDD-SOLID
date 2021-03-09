@@ -49,7 +49,26 @@ describe('addCategoria', ()=>{
     expect(response.statusCode).toBe(400)
   })
 
-  test('Show return code 500 when something goes wrong', async()=>{
+  test('Should call handle with the correct values', async()=>{
+    const slug = makeAddCategoria()
+    const sut = new addCategoria(slug)
+
+    const spy = jest.spyOn(slug, 'handle')
+    const httpRequest: httpRequest = {
+      body:{
+        name: 'test name',
+        photo: 1
+      }
+    }
+    
+    await sut.handle(httpRequest)
+    expect(spy).toHaveBeenCalledWith({
+      name: httpRequest.body.name,
+      photo: httpRequest.body.photo
+    })
+  })
+
+  test('return 500 if handle throws', async()=>{
     const addCategoriaSlug = makeAddCategoria()
     const sut = new addCategoria(addCategoriaSlug)
     const httpRequest: httpRequest = {
@@ -58,18 +77,12 @@ describe('addCategoria', ()=>{
         photo: 2
       }
     }
+    jest.spyOn(addCategoriaSlug, 'handle').mockImplementationOnce(()=>{
+      throw new Error('teste')
+    })
     const response: httpResponse = await sut.handle(httpRequest)
-    expect(response.statusCode).toBe(200)
-    expect(response.body.data).toEqual({
-      id: 1,
-      name: 'fake name',
-      photo: 
-        {
-          id: 1,
-          url: 'fakeurl'
-        }
-      
-    } )
+    expect(response.statusCode).toBe(500)
+    expect(response.body).toEqual( { Error: 'Something went wrong: teste'  })
   })
 
   test('Show return code 200 when categoria is created', async()=>{

@@ -19,8 +19,6 @@ export class addPhoto implements Icontrollers{
           }
         }
       }
-      
-    
     const url = httpRequest.file.location
     const key: string = httpRequest.file.key
     const response: IPhoto = await this.PhotoUseCase.handle({

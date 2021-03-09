@@ -1,6 +1,6 @@
-import { IProduto } from '../../../domain/model/produto';
-import {listProdutoCategoriaRepository} from '../../protocols/Produtos/listProdutoCategoriaRepository'
-import {ListProdutosCategoria} from '../../../domain/usercases/Produto/listProdutos-Categoria'
+import { IProduto } from '../../../../domain/model/produto';
+import {listProdutoCategoriaRepository} from '../../../protocols/Produtos/listProdutoCategoriaRepository'
+import {ListProdutosCategoria} from '../../../../domain/usercases/Produto/listProdutos-Categoria'
 
 
 export class dbListProdutoCategoria implements ListProdutosCategoria{

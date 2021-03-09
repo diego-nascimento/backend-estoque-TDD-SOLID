@@ -10,7 +10,7 @@ export class ListProduto implements Icontrollers{
 
   async handle(httpRequest: httpRequest): Promise<httpResponse>{
     try {
-      let page:number = 1
+      let page: number = 1
       if(httpRequest.params && httpRequest.params.page !== undefined){
         page = httpRequest.params['page']
       }

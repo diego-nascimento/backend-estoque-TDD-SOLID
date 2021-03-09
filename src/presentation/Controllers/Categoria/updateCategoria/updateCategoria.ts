@@ -17,7 +17,11 @@ export class updateCategoria implements Icontrollers{
       }
     }
 
-    if(!httpRequest.params['id']){
+    if(!httpRequest.params){
+      return badRequest(Error('Parametros faltando: id'))
+    }
+
+    if(httpRequest.params['id'] === undefined){
       return badRequest(Error('Parametros faltando: id'))
     }
 
@@ -27,7 +31,7 @@ export class updateCategoria implements Icontrollers{
     const response = await this.updateCategoriauseCase.handle(categoria_id, {name, photo})
     return ok(response)
    } catch (error) {
-     return serverError(Error(error))
+     return serverError(error)
    }
   }
 }

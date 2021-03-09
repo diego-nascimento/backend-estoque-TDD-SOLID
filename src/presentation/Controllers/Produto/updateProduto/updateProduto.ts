@@ -24,7 +24,7 @@ export class updateProdutoPresentation implements Icontrollers{
       return badRequest(Error('Missing Param: id'))
     }
 
-    if(!httpRequest.params['id'] === undefined){
+    if(httpRequest.params['id'] === undefined){
       return badRequest(Error('Missing Param: id'))
     }
 

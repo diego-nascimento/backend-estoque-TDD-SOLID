@@ -150,7 +150,8 @@ describe('add Produto', ()=>{
   })
 
   test('Should return 500 if something goes wrong', async ()=>{
-    const sut = new addProduto(makeaddProdutouseCase())
+    const slug = makeaddProdutouseCase()
+    const sut = new addProduto(slug)
     const httpRequest: httpRequest = {
       body: {
         name: 'name test',
@@ -163,9 +164,10 @@ describe('add Produto', ()=>{
         preco: 25.15
       }
     }
-    const serverErrorTest = serverError(new Error('teste'))
 
-    jest.spyOn(sut, 'handle').mockReturnValueOnce(new Promise(resolve => resolve(serverErrorTest)))
+    jest.spyOn(slug, 'add').mockImplementationOnce(()=>{
+      throw new Error('teste')
+    })
 
     const response = await sut.handle(httpRequest)
     expect(response.statusCode).toBe(500)

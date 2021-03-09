@@ -1,5 +1,5 @@
 import {ListProduto} from '../../../presentation/Controllers/Produto/ListProduto/listProduto'
-import {dblistProduto} from '../../../data/useCases/Produto/listProduto'
+import {dblistProduto} from '../../../data/useCases/Produto/listProduto/listProduto'
 import {listProdutoRepo} from '../../../infra/db/postgres/ProdutoRepository/listProdutoRepository'
 
 export const listProdutoFactory = ()=>{
