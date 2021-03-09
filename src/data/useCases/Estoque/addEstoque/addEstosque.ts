@@ -1,5 +1,5 @@
-import { addEstoqueCase } from "../../../domain/usercases/Estoque/AddEstoque";
-import { addEstoqueRepository } from "../../protocols/Estoque/addEstoqueRepository";
+import { addEstoqueCase } from "../../../../domain/usercases/Estoque/AddEstoque";
+import { addEstoqueRepository } from "../../../protocols/Estoque/addEstoqueRepository";
 
 
 export class dbAddEstoque implements addEstoqueCase{
