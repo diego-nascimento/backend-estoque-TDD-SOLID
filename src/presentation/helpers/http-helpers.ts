@@ -31,3 +31,12 @@ export const ok = (data: any): httpResponse => {
 
   return response
 }
+
+export const forbidden = ():httpResponse =>{
+  return {
+    statusCode: 403,
+    body:{
+      Error: 'Access Denied'
+    }
+  }
+}

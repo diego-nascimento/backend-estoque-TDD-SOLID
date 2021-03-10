@@ -19,4 +19,5 @@ export {countEstoqueFactory} from '../factories/Estoque/countEstoqueFactory'
 export {signUpFactory} from '../factories/Section/signUpFactory'
 export {ActivateAccountFactory} from '../factories/Section/ActivateAccount'
 export {createSectionFactory} from '../factories/Section/createSection'
+export {AuthMidwareFactory} from '../factories/Section/Authentication'
  

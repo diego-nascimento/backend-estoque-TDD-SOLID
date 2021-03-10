@@ -38,6 +38,7 @@ export* from '../../data/useCases/Estoque/countEstoque/countEstoque'
 export * from '../../data/useCases/Section/SignUp/signUp'
 export * from '../../data/useCases/Section/ActivateAccount/ActivateAccount'
 export * from '../../data/useCases/Section/createSection/createSection'
+export * from '../../data/useCases/Section/Authentication/auth'
 
 
 export * from '../../presentation/Controllers/Categoria/addCategoria/addCategoria'
@@ -60,5 +61,6 @@ export * from '../../presentation/Controllers/Estoque/countEstoque/countEstoque'
 export * from '../../presentation/Controllers/Section/SignUp/SignUp'
 export * from '../../presentation/Controllers/Section/ActivateAccount/ActivateAccount'
 export * from '../../presentation/Controllers/Section/createSection/createSection'
+export * from '../../presentation/Midwares/Authentication'
 
 
