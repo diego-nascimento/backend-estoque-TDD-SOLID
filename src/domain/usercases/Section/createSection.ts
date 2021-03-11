@@ -5,7 +5,8 @@ export interface IcreateSectionEntry{
 }
 
 export interface IcreateSectionReturn{
-  token: string
+  token?: string
+  status: number
 }
 
 export interface ICreateSection{

@@ -35,7 +35,7 @@ export class SignUp implements SignUpUseCase{
     const message:SendMailEntry = {
       from: 'contato@store.com',
       subject: 'Account Verification',
-      text: 'Verify Account: ' + 'http://localhost:8081/email_confirmation/?code='+email_hash ,
+      text: 'Verify Account: ' + 'http://localhost:3000/email_confirmation/?code='+email_hash ,
       to: email,
     }
     this.sendEmail.send(message)

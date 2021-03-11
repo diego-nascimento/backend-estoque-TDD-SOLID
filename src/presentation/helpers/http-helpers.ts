@@ -3,12 +3,11 @@ import { httpResponse } from "../protocols/http";
 export const serverError = (error: Error): httpResponse =>{
   const response: httpResponse = {
     statusCode: 500,
-    body: {
-      Error: ('Something went wrong: ' + error.message)
-    }
+    body: error.message
   }
   return response
 }
+
 
 export const badRequest = (error: Error): httpResponse =>{
   const response: httpResponse = {

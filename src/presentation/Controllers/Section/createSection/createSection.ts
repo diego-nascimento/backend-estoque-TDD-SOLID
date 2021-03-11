@@ -1,5 +1,5 @@
 import {ICreateSection, IcreateSectionEntry} from '../../../../domain/usercases/Section/createSection'
-import { badRequest, ok, serverError } from '../../../helpers/http-helpers';
+import { badRequest, forbidden, ok, serverError} from '../../../helpers/http-helpers';
 import { Icontrollers } from '../../../protocols/controllers';
 import { httpRequest, httpResponse } from '../../../protocols/http';
 
@@ -21,6 +21,9 @@ export class createSectionPresentation implements Icontrollers{
     const {login, password} = httpRequest.body
     const data: IcreateSectionEntry = {login, password}
     const response = await this.createSection.createSection(data)
+    if (response.status === 402) {
+      return forbidden()
+    }
     return ok(response)
     } catch (error) {
       return serverError(error)

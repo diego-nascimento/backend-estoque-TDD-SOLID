@@ -4,6 +4,7 @@ import PhotoRoutes from './routes/Photo/PhotoRoutes'
 import ProdutoRoutes from './routes/Produto/ProdutoRoutes'
 import EstoqueRoutes from './routes/Estoque/EstoqueRoutes'
 import SectionRoutes from './routes/Section/sectionRoutes'
+import cors from 'cors'
 
 class server{
   public server;
@@ -14,7 +15,9 @@ class server{
   }
 
   midwares(){
+    this.server.use(cors())
     this.server.use(express.json())
+    
   }
 
   routes(){

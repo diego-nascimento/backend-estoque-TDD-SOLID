@@ -17,10 +17,13 @@ export class createSectionData implements ICreateSection{
   async createSection(data: IcreateSectionEntry): Promise<IcreateSectionReturn>{
      const user:  IUser = await this.searchUser.search(data.login)
      if(!user.password || ! await this.checkPassword.compare(data.password, user.password)){
-       throw new Error('User or password do not exists')
+       return {
+         status: 402
+       }
      }
      const token = this.generateJWT.generate(data.login)
-     return {
+    return {
+       status: 200,
        token
      }
   }
