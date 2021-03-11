@@ -8,13 +8,15 @@
     <li><b>Amazon S3 </b></li>
     <li> <b>Multer </b></li>
     <li><b>Express </b></li>
+  <li><b>JSONWEBTOKEN </b></li>
+  <li><b>NodeMailer</b></li>
 </ul>
  
 <h2>Este projeto é um cadastro de produtos, feito para praticar typescript e conceitos de TDD, clean Architeture and SOLID</h2>
+O projeto conta com cadastro de usuario e autenticação para rotas que modificam os dados, além de verificação de conta por email. 
+Tudo isso utilizando 
 
 Segue na pasta raiz um arquivo example .env onde segue um exemplo das informações do arquivo .env
-
-Segue também na pasta raiz do projeto, um arquivo onde se encontram todas as rotas,, onde estam informados os methods, urls, envio de informação e formato de retorno de cada rota da aplicação
 
 Para executar a aplicação. Execute os seguintes passos:
 
