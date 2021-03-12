@@ -15,6 +15,7 @@ export class Auth implements IMidwares{
       const access_code = httpRequest.headers['x-access-token']
     if(access_code){
       const response = await this.authentication.auth(access_code)
+      
       if(response){
         return ok(response);
       }

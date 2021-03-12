@@ -20,11 +20,16 @@ export class createSectionData implements ICreateSection{
        return {
          status: 402
        }
-     }
-     const token = this.generateJWT.generate(data.login)
+    }
+    
+    const token = this.generateJWT.generate(data.login)
     return {
-       status: 200,
-       token
+      status: 200,
+      token,
+      user: {
+        email: user.email,
+        nome: user.nome
+       }
      }
   }
 }

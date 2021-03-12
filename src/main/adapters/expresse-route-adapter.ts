@@ -8,7 +8,8 @@ export const adaptRoutes =  (controller: Icontrollers) =>{
       body: req.body,
       file: req.file,
       params: req.params,
-      query: req.query
+      query: req.query,
+      headers: req.headers
     }
     const httpResp: httpResponse = await controller.handle(httpRequest)
     return res.status(httpResp.statusCode).json(httpResp.body)

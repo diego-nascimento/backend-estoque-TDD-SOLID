@@ -1,3 +1,4 @@
+import { IUser } from "../../model/user";
 
 export interface IcreateSectionEntry{
   login: string,
@@ -7,6 +8,7 @@ export interface IcreateSectionEntry{
 export interface IcreateSectionReturn{
   token?: string
   status: number
+  user?: IUser
 }
 
 export interface ICreateSection{
