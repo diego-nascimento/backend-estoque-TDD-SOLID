@@ -1,6 +1,6 @@
 import { badRequest, httpRequest, httpResponse, Icontrollers, IProduto, ok, serverError } from "../addProduto/protocols";
 import {updateProduto} from '../../../../domain/usercases/Produto/updateProduto'
-import { IProdutoEntry, ProdutoPhotoEntry } from "../../../../domain/usercases/Produto/addProduto";
+import { IProdutoEntry, ProdutoCategoriasEntry, ProdutoPhotoEntry } from "../../../../domain/usercases/Produto/addProduto";
 
 
 export class updateProdutoPresentation implements Icontrollers{
@@ -29,7 +29,14 @@ export class updateProdutoPresentation implements Icontrollers{
     }
 
     const id: number = parseInt(httpRequest.params.id)
-    const {name, description, preco, resume, categoria} = httpRequest.body
+      const { name, description, preco, resume } = httpRequest.body
+      const categoriasData: Array<number> = httpRequest.body.categorias;
+
+    const categorias: Array<ProdutoCategoriasEntry> = categoriasData.map(id =>{
+      return{
+        id: id
+      }
+    })
     const photosData: Array<number> = httpRequest.body.photos
     const photos: Array<ProdutoPhotoEntry> = photosData.map(id =>{
       return{
@@ -38,7 +45,7 @@ export class updateProdutoPresentation implements Icontrollers{
     })
 
     const produto: IProdutoEntry = {
-      categoria,
+      categorias,
       description,
       name, 
       preco, 

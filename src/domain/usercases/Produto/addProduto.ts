@@ -4,13 +4,16 @@ export interface ProdutoPhotoEntry{
   id:number
 }
 
+export interface ProdutoCategoriasEntry{
+  id:number
+}
 
 export interface IProdutoEntry{
   name: string,
   description: string,
   resume: string,
   photos: Array<ProdutoPhotoEntry>
-  categoria: number
+  categorias: Array<ProdutoCategoriasEntry>
   preco: number
 }
 

@@ -12,9 +12,7 @@ export class addProdutoPostGres implements addProdutoRepository{
           resume: produto.resume,
           preco: produto.preco,
           categoria:{
-            connect: {
-              id: produto.categoria
-            }
+            connect: produto.categorias 
           },
           photos:{
             connect: produto.photos
@@ -35,14 +33,16 @@ export class addProdutoPostGres implements addProdutoRepository{
         name: response.name,
         preco: response.preco,
         resume: response.resume,
-        categoria: {
-          id: response.categoria.id,
-          name: response.categoria.name,
-          photo: {
-            id: response.categoria.photos?.id,
-            url: response.categoria.photos?.url
-          },
-        },
+        categorias: response.categoria.map(categoria =>{
+          return {
+            id: categoria.id,
+            name: categoria.name,
+            photo: {
+              id: categoria.photos?.id,
+              url: categoria.photos?.url
+            },
+          }
+        }), 
         photos: response.photos.map(photo =>{
           return {
             id: photo.id,

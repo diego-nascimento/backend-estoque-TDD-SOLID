@@ -26,14 +26,16 @@ export class listProdutoRepo implements listProdutoRepository{
         name: produto.name,
         preco: produto.preco,
         resume: produto.resume,
-        categoria:{
-          id: produto.categoria.id,
-          name: produto.categoria.name,
-          photo: {
-            id: produto.categoria.photos?.id,
-            url: produto.categoria.photos?.url
+        categorias: produto.categoria.map(categoria =>{
+          return {
+            id: categoria.id,
+            name: categoria.name,
+            photo: {
+              id: categoria.photos?.id,
+              url: categoria.photos?.url
+            },
           }
-        },
+        }), 
         photos: produto.photos.map((photo):IPhoto =>{
           return {
             id: photo.id,

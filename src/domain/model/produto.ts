@@ -7,6 +7,6 @@ export interface IProduto{
   description: string,
   resume: string
   photos: Array<IPhoto>
-  categoria: Icategoria
+  categorias: Array<Icategoria>
   preco: number
 }

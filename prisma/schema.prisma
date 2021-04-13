@@ -20,15 +20,14 @@ model categoria {
 }
 
 model produto {
-  id          Int       @id @default(autoincrement())
-  name        String    @db.VarChar(255)
-  description String    @db.VarChar(255)
+  id          Int         @id @default(autoincrement())
+  name        String      @db.VarChar(255)
+  description String      @db.VarChar(255)
   preco       Float
-  resume      String    @db.VarChar(255)
-  createdAt   DateTime  @default(now()) @db.Timestamp(6)
+  resume      String      @db.VarChar(255)
+  createdAt   DateTime    @default(now()) @db.Timestamp(6)
   photos      photo[]
-  categoria   categoria @relation(fields: [categoriaId], references: [id])
-  categoriaId Int
+  categorias  categoria[]
   estoque     estoque[]
 }
 

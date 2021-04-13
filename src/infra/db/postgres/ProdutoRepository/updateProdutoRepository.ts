@@ -44,9 +44,7 @@ export class updateProdutoPostGres implements updateProdutoRepository{
           resume: produto.resume,
           preco: produto.preco,
           categoria:{
-            connect: {
-              id: produto.categoria
-            }
+            connect: produto.categorias
           },
           photos:{
             connect: produto.photos

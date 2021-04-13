@@ -4,7 +4,7 @@ import { httpRequest } from '../protocols/http'
 
 const makeslug = ()=>{
   class slug implements IAuth{
-    async auth(access_code:string):Promise<boolean>{
+    async auth (access_code:string):Promise<boolean>{
       return Promise.resolve(true)
     }
   }

@@ -11,7 +11,11 @@ export class listProdutoCategoriaPostgres implements listProdutoCategoriaReposit
         skip: resultsPerPage * pageNumber,
         take: resultsPerPage,
         where: {
-          categoriaId: categoria
+          categoria: {
+            some: {
+              id: categoria              
+            }
+          }
         },
         include:{
           photos: true,
@@ -22,27 +26,30 @@ export class listProdutoCategoriaPostgres implements listProdutoCategoriaReposit
           }
         }
       })
+    
       const produtos: Array<IProduto> = response.map((produto):IProduto=>{
         return {
           description: produto.description,
          id: produto.id,
          name: produto.name,
-        resume: produto.resume,
-        preco: produto.preco,
-        categoria: {
-            id: produto.categoria.id,
-            name: produto.categoria.name,
-            photo: {
-              id: produto.categoria.photos?.id,
-              url: produto.categoria.photos?.url
-          },
-        },
-        photos: produto.photos.map(photo =>{
-          return {
-            id: photo.id,
-            url: photo.url
-          }
-        }) 
+          resume: produto.resume,
+          preco: produto.preco,
+          categorias: produto.categoria.map(categoria =>{
+            return {
+              id: categoria.id,
+              name: categoria.name,
+              photo: {
+                id: categoria.photos?.id,
+                url: categoria.photos?.url
+              },
+            }
+          }), 
+          photos: produto.photos.map(photo =>{
+            return {
+              id: photo.id,
+              url: photo.url
+            }
+          }) 
         }
       })
       return produtos

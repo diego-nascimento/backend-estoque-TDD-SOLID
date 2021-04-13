@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev ./src/main/server.ts",
+    "start": "ts-node-dev ./src/main/server.ts",
     "test": "jest",
     "test:unit": "yarn test --watch --c jest-unit-config.js "
   },
